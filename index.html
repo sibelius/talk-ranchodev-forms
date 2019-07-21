@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width,initial-scale=1'>
+<style>*{box-sizing:border-box}body{font-family:system-ui,sans-serif;margin:0}</style>
+<meta name='generator' content='mdx-deck'>
+<title data-head="true">Taming Forms with Formik</title><style data-styled="gqXzsY eIhpmh iJsiAg eyUBso jSbIcv kIOLHq fcHFCs bkgHQL kVpjno kYXkgW jHpaJI bWMMAk gMdDmI gLSTcN hsaGYs hnJNis doNuCS kUMGsA iptahz OIgZY bXwOhG kfwTvB bLgNgG hhOokc wJUqW flYqAW gkgfDX hldtIs iAkvIu kZXZCg dneRWO nIksq cWKBMX eGMyDQ eAbmkC dLaCXe dYvQnx gYPwoA gUKKmP eLKZAI htdezM fHDcrp jucmbo bENqf" data-styled-version="4.3.2">
+/* sc-component-id: Flex-sc-1wyx7c4-0 */
+.eLKZAI{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-left:auto;margin-right:auto;margin-bottom:8px;} @media print{.eLKZAI{display:none;}}
+/* sc-component-id: Dots__Dot-m5ie3q-0 */
+.htdezM{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.5;margin:0;padding:4px;color:#fff;background-color:#fff;} .htdezM:focus{outline:none;box-shadow:0 0 0 1px;}.fHDcrp{-webkit-appearance:none;-moz-appearance:none;appearance:none;border:4px solid transparent;background-clip:padding-box;border-radius:9999px;width:8px;height:8px;color:inherit;opacity:0.125;margin:0;padding:4px;color:#fff;background-color:#fff;} .fHDcrp:focus{outline:none;box-shadow:0 0 0 1px;}
+/* sc-component-id: Provider__Bottom-sc-1iqnegd-0 */
+.gUKKmP{position:fixed;left:0;right:0;bottom:0;}
+/* sc-component-id: sc-bdVaJa */
+.jucmbo{cursor:pointer;width:64px;height:100vh;position:fixed;top:0;left:0;bottom:0;}
+/* sc-component-id: sc-bwzfXH */
+.bENqf{cursor:pointer;width:64px;height:100vh;position:fixed;top:0;right:0;bottom:0;}
+/* sc-component-id: Carousel__CarouselRoot-sc-1sjk1xy-0 */
+.eIhpmh{overflow-x:hidden;width:100%;height:100%;} @media print{.eIhpmh{height:auto;overflow-x:visible;}}
+/* sc-component-id: Carousel__CarouselInner-sc-1sjk1xy-1 */
+.iJsiAg{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;width:100%;height:100%;-webkit-transition-property:-webkit-transform;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-timing-function:ease-out;transition-timing-function:ease-out;-webkit-transition-duration:.3s;transition-duration:.3s;-webkit-transform:translate3d(0%,0,0);-ms-transform:translate3d(0%,0,0);transform:translate3d(0%,0,0);} @media print{.iJsiAg{height:auto;display:block;}}
+/* sc-component-id: Slide__Root-sc-1lv2mpt-0 */
+.eyUBso{-webkit-flex:none;-ms-flex:none;flex:none;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;overflow:hidden;width:100%;height:100%;padding-left:32px;padding-right:32px;} @media print{.eyUBso{width:100vw;height:100vh;page-break-after:always;page-break-inside:avoid;-webkit-print-color-adjust:exact;}} @media screen and (min-width:40em){.eyUBso{padding-left:64px;padding-right:64px;}} @media screen and (min-width:52em){.eyUBso{padding-left:128px;padding-right:128px;}}
+/* sc-component-id: Root-sc-14f5wl6-0 */
+.gqXzsY{font-family:system-ui,sans-serif;font-size:16px;text-align:center;width:100vw;height:100vh;color:#fff;background-color:#272425;} @media print{.gqXzsY{font-size:24px;height:auto;}} @media screen and (min-width:64em){.gqXzsY{font-size:32px;}} .gqXzsY li > ul,.gqXzsY li > ol{font-size:inherit;} .gqXzsY li > p{font-size:inherit;margin:0;}
+/* sc-component-id: sc-fjdhpX */
+.kfwTvB{line-height:1.25;font-size:3em;}
+/* sc-component-id: sc-jzJRlG */
+.hhOokc{line-height:1.25;font-size:2em;}
+/* sc-component-id: components__a-mhn4yb-1 */
+.gkgfDX{color:#08f;}
+/* sc-component-id: components__p-mhn4yb-2 */
+.bLgNgG{font-size:1.5em;}
+/* sc-component-id: components__ul-mhn4yb-3 */
+.wJUqW{text-align:left;font-size:1.5em;text-align:left;}
+/* sc-component-id: Cover__Root-sc-1j56zk8-0 */
+.jSbIcv{width:50vw;height:70vh;}
+/* sc-component-id: Cover__Img-sc-1j56zk8-1 */
+.fcHFCs{width:150px;}
+/* sc-component-id: Cover__Center-sc-1j56zk8-2 */
+.kIOLHq{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+/* sc-component-id: Cover__Title-sc-1j56zk8-3 */
+.bkgHQL{font-size:50px;margin-top:20px;}
+/* sc-component-id: Cover__Subtitle-sc-1j56zk8-4 */
+.kVpjno{font-size:40px;color:#FDAA4C;margin-top:20px;}
+/* sc-component-id: Cover__MeName-sc-1j56zk8-5 */
+.kYXkgW{font-size:30px;color:#25D7FD;margin-top:100px;}
+/* sc-component-id: sc-kEYyzF */
+.bXwOhG{box-sizing:border-box;margin-top:30px;-webkit-flex:1;-ms-flex:1;flex:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+/* sc-component-id: Intro__IconImage-cvheuq-0 */
+.doNuCS{max-height:60px;max-width:60px;}
+/* sc-component-id: Intro__Link-cvheuq-1 */
+.hnJNis{-webkit-text-decoration:none;text-decoration:none;color:white;}
+/* sc-component-id: Intro__Me-cvheuq-2 */
+.gMdDmI{max-width:150px;max-height:150px;}
+/* sc-component-id: Intro__MeName-cvheuq-3 */
+.gLSTcN{font-size:50px;color:#25D7FD;margin-left:60px;}
+/* sc-component-id: Intro__Row-cvheuq-4 */
+.bWMMAk{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:40px;}
+/* sc-component-id: Intro__Center-cvheuq-5 */
+.iptahz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+/* sc-component-id: Intro__SpaceBetween-cvheuq-6 */
+.hsaGYs{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;}
+/* sc-component-id: Intro__Root-cvheuq-7 */
+.jHpaJI{height:70vh;}
+/* sc-component-id: Intro__Username-cvheuq-8 */
+.kUMGsA{font-size:14px;margin-left:20px;}
+/* sc-component-id: Intro__EntriaLogo-cvheuq-9 */
+.OIgZY{max-width:600px;}
+/* sc-component-id: Thanks__Root-sc-1l4pokv-0 */
+.hldtIs{width:50vw;height:70vh;}
+/* sc-component-id: Thanks__SpaceBetween-sc-1l4pokv-1 */
+.dneRWO{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-top:50px;margin-bottom:50px;}
+/* sc-component-id: Thanks__ThanksText-sc-1l4pokv-2 */
+.kZXZCg{font-size:50px;color:#ffffff;}
+/* sc-component-id: Thanks__HiringText-sc-1l4pokv-3 */
+.nIksq{font-size:100px;color:#25D7FD;}
+/* sc-component-id: Thanks__Center-sc-1l4pokv-4 */
+.iAkvIu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+/* sc-component-id: Thanks__EntriaLogo-sc-1l4pokv-5 */
+.cWKBMX{max-width:600px;margin-top:100px;}
+/* sc-component-id: Feedback__Root-ho6ro2-1 */
+.eGMyDQ{width:50vw;height:70vh;}
+/* sc-component-id: Feedback__FeedbackText-ho6ro2-3 */
+.dYvQnx{font-size:50px;color:#ffffff;}
+/* sc-component-id: Feedback__FeedbackLink-ho6ro2-4 */
+.gYPwoA{font-size:50px;color:#25D7FD;}
+/* sc-component-id: Feedback__Center-ho6ro2-5 */
+.eAbmkC{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}.dLaCXe{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex:1;-ms-flex:1;flex:1;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;margin-top:60px;margin-bottom:60px;}</style>
+</head>
+<body>
+<div id=root><div><div mode="NORMAL" step="0" width="100vw" height="100vh" color="text" class="Root-sc-14f5wl6-0 gqXzsY"><div class="Carousel__CarouselRoot-sc-1sjk1xy-0 eIhpmh"><div class="Carousel__CarouselInner-sc-1sjk1xy-1 iJsiAg"><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><div class="Cover__Root-sc-1j56zk8-0 jSbIcv"><div class="Cover__Center-sc-1j56zk8-2 kIOLHq"><img src="./img/formBlue.png" width="150" class="Cover__Img-sc-1j56zk8-1 fcHFCs"/><span class="Cover__Title-sc-1j56zk8-3 bkgHQL">Taming Forms</span><span class="Cover__Subtitle-sc-1j56zk8-4 kVpjno">Without tears</span><span class="Cover__MeName-sc-1j56zk8-5 kYXkgW">Sibelius Seraphini</span></div></div></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><div class="Intro__Root-cvheuq-7 jHpaJI"><div class="Intro__Row-cvheuq-4 bWMMAk"><img src="./img/me.png" class="Intro__Me-cvheuq-2 gMdDmI"/><span class="Intro__MeName-cvheuq-3 gLSTcN">Sibelius Seraphini</span></div><div class="Intro__SpaceBetween-cvheuq-6 hsaGYs"><div><a href="https://github.com/sibelius" target="_blank" class="Intro__Link-cvheuq-1 hnJNis"><div class="Intro__Row-cvheuq-4 bWMMAk"><img src="./img/github.png" class="Intro__IconImage-cvheuq-0 doNuCS"/><span class="Intro__Username-cvheuq-8 kUMGsA">@sibelius</span></div></a></div><div><a href="https://twitter.com/sseraphini" target="_blank" class="Intro__Link-cvheuq-1 hnJNis"><div class="Intro__Row-cvheuq-4 bWMMAk"><img src="./img/twitter.png" class="Intro__IconImage-cvheuq-0 doNuCS"/><span class="Intro__Username-cvheuq-8 kUMGsA">@sseraphini</span></div></a></div></div><div class="Intro__Center-cvheuq-5 iptahz"><img src="./img/entriaLogo.png" class="Intro__EntriaLogo-cvheuq-9 OIgZY"/></div><div class="sc-hMqMXs sc-kEYyzF bXwOhG"><span class="Intro__MeName-cvheuq-3 gLSTcN">Abstract Engineer</span></div></div></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><h1 font-size="4" class="components__Heading-mhn4yb-0-h1 sc-fjdhpX kfwTvB">Overview</h1><ul><li style="visibility:hidden">Forms</li><li style="visibility:hidden">Fields</li></ul></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><h1 font-size="4" class="components__Heading-mhn4yb-0-h1 sc-fjdhpX kfwTvB">What is a Form</h1><p font-size="2" class="components__p-mhn4yb-2 bLgNgG">...</p></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><h1 font-size="4" class="components__Heading-mhn4yb-0-h1 sc-fjdhpX kfwTvB">What is a Field</h1><p font-size="2" class="components__p-mhn4yb-2 bLgNgG">...</p></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><h2 font-size="3" class="components__Heading-mhn4yb-0-h2 sc-jzJRlG hhOokc">References</h2><ul font-size="2" class="components__ul-mhn4yb-3 wJUqW"><li class="components__li-mhn4yb-5 flYqAW"><a href="https://jaredpalmer.com/formik/" color="link" class="components__a-mhn4yb-1 gkgfDX">Formik</a></li></ul></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><div class="Thanks__Root-sc-1l4pokv-0 hldtIs"><div class="Thanks__Center-sc-1l4pokv-4 iAkvIu"><span class="Thanks__ThanksText-sc-1l4pokv-2 kZXZCg">Thanks!</span></div><div class="Thanks__SpaceBetween-sc-1l4pokv-1 dneRWO"><span class="Thanks__HiringText-sc-1l4pokv-3 nIksq">We are hiring!</span></div><a href="https://entria.feedback.house/vagas/vaga/Sm9iUG9zdGluZzo1YWY5OTU0NDQ3MGYyMzAwMGYyMTRiYjI=">Join Us</a><div class="Thanks__Center-sc-1l4pokv-4 iAkvIu"><img src="./img/entriaLogo.png" class="Thanks__EntriaLogo-sc-1l4pokv-5 cWKBMX"/></div></div></div></div><div class="Slide__Root-sc-1lv2mpt-0 eyUBso"><div><div class="Feedback__Root-ho6ro2-1 eGMyDQ"><div class="Feedback__Center-ho6ro2-5 eAbmkC"><span class="Feedback__FeedbackText-ho6ro2-3 dYvQnx">Give me a Feedback:</span></div><div class="Feedback__Center-ho6ro2-5 dLaCXe"><canvas style="height:256px;width:256px" height="256" width="256"></canvas></div><div class="Feedback__Center-ho6ro2-5 eAbmkC"><a href="https://entria.feedback.house/sibelius" class="Feedback__FeedbackLink-ho6ro2-4 gYPwoA">https://entria.feedback.house/sibelius</a></div></div></div></div></div></div></div></div><div class="Provider__Bottom-sc-1iqnegd-0 gUKKmP"><div class="Flex-sc-1wyx7c4-0 eLKZAI"><button title="go to: 0" color="text" class="Dots__Dot-m5ie3q-0 htdezM"></button><button title="go to: 1" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button><button title="go to: 2" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button><button title="go to: 3" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button><button title="go to: 4" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button><button title="go to: 5" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button><button title="go to: 6" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button><button title="go to: 7" color="text" class="Dots__Dot-m5ie3q-0 fHDcrp"></button></div></div><div role="button" title="Previous Slide" class="Provider__Button-sc-1iqnegd-1 sc-bdVaJa jucmbo"></div><div role="button" title="Next Slide" class="Provider__Button-sc-1iqnegd-1 sc-bwzfXH bENqf"></div></div>
+<script src="main.js"></script>
+</body>
+</html>
