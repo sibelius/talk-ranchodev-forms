@@ -33,25 +33,178 @@ export { default as theme } from './theme'
         <li>
             Fields
         </li>
+        <li>
+            Validation
+        </li>
     </Appear>
 </ul>
 
 ---
 
-# What is a Form
+## What is a Form
 
-...
+Form enables users to input data that will be saved locally or sent to a server
+
+<Appear>
+A Form can have one or more fields.
+</Appear>
 
 ---
 
 # What is a Field
-...
+A Field receives a single value of a Form.
 
+<Appear>
+A Field can be a `checkbox`, `textfield`, `radio button` and so on.
+</Appear>
+
+---
+
+# Field Meta (State)
+<ul>
+    <Appear>
+        <li>A field have a value</li>
+        <li>A field can have a validation (it should be an email)</li>
+        <li>A field can have an error</li>
+        <li>A field can have a touched state</li>
+    </Appear>
+</ul>
+
+---
+
+## Why Forms are hard?
+<ul>
+    <Appear>
+        <li>It needs to control many fields state (value, error, touched, validation)</li>
+        <li>It can have validation per field, but also conditional validation</li>
+        <li>Fields can show and hide based on form state</li>
+        <li>A field can have a touched state</li>
+        <li>It can have multiple steps</li>
+    </Appear>
+</ul>
+
+---
+
+<CodeSurfer
+  title="Form useState"
+  code={require('!raw-loader!./code/FormUseState.tsx').default}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "Form useState" },
+    { range: [2,7], notes: 'mapPropsToValues' },
+    { range: [9, 9], notes: 'formState' },
+    { range: [11, 13], notes: 'handleSubmit' },
+    { range: [15, 18], notes: 'setFieldValue' },
+    { range: [24, 32], notes: 'Text Field' },
+    { range: [45, 50], notes: 'Submit button' },
+    { notes: "Form useState" },
+  ]}
+/>
+---
+
+## Problems with useState approach
+<ul>
+    <Appear>
+        <li>It does not handle touched and error per field</li>
+        <li>It does not have validation</li>
+        <li>It does not block submit if any field is invalid</li>
+        <li>It need to "bind" state and field value handlers for each field</li>
+    </Appear>
+</ul>
+
+---
+
+<CodeSurfer
+  title="Form useFormik"
+  code={require('!raw-loader!./code/FormUseFormik.tsx').default}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "Form useFormik" },
+    { range: [2,4], notes: 'onSubmit' },
+    { range: [6, 12], notes: 'useFormik' },
+    { range: [21, 21], notes: 'FormikProvider' },
+    { range: [22, 30], notes: 'Text Field' },
+    { range: [43, 48], notes: 'Submit button' },
+    { notes: "Form useFormik" },
+  ]}
+/>
+---
+## Why do we need a Provider?
+- A provider "provide" values/functions to a given tree of components
+- We add Form values to a provider so our Fields can consume them directly from context
+
+---
+<CodeSurfer
+  title="Form useField"
+  code={require('!raw-loader!./code/FormUseField.tsx').default}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "Form useField" },
+    { range: [1,10], notes: 'TextFieldFormik - useField' },
+    { range: [29, 33], notes: 'TextFieldFormik usage' },
+    { notes: "Form useField" },
+  ]}
+/>
+---
+<CodeSurfer
+  title="Form Yup Validation"
+  code={require('!raw-loader!./code/FormValidation.tsx').default}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "Form Yup" },
+    { range: [20,25], notes: 'ValidationSchema' },
+    { range: [27, 35], notes: 'useFormik' },
+    { range: [1, 13], notes: 'TextFieldFormik' },
+    { range: [10, 10], notes: 'ErrorMessage' },
+    { notes: "Form Yup" },
+  ]}
+/>
+---
+<CodeSurfer
+  title="usePrompt"
+  code={require('!raw-loader!./code/usePrompt.tsx').default}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "usePrompt" },
+    { range: [2,2], notes: 'when=true if show an alert message' },
+    { range: [5,5], notes: 'useRouter react-router-dom' },
+    { range: [27, 31], notes: 'block router if when is true, unblock otherwise' },
+    { range: [33, 35], notes: 'listen to beforeunload event' },
+    { range: [9, 24], notes: 'show message if when=true' },
+    { range: [38, 48], notes: 'clean up ref and event listeners' },
+    { notes: "usePrompt" },
+  ]}
+/>
+---
+<CodeSurfer
+  title="usePrompt usage"
+  code={require('!raw-loader!./code/FormUsePrompt.tsx').default}
+  showNumbers={false}
+  dark={true}
+  lang="jsx"
+  steps={[
+    { notes: "usePrompt usage" },
+    { range: [2,8], notes: 'useFormik to get formikbag' },
+    { range: [10,13], notes: 'usePrompt to avoid user leaving with dirty unsubmitted data' },
+    { notes: "usePrompt usage" },
+  ]}
+/>
 ---
 
 ## References
 
 - [Formik](https://jaredpalmer.com/formik/)
+- [Forms Examples of this Talk](https://github.com/sibelius/forms-examples)
 
 ---
 

@@ -39,7 +39,7 @@ const MeName = styled.span`
 export const Cover = () => (
   <Root>
     <Center>
-      <Img src={'./img/formBlue.png'} width={150} />
+      <Img src={'./img/formBlueOrange.png'} width={150} />
       <Title mt={20}>Taming Forms</Title>
       <Subtitle mt={20}>Without tears</Subtitle>
       <MeName mt={100}>Sibelius Seraphini</MeName>
