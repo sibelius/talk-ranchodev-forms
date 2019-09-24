@@ -6,13 +6,17 @@ const FormUseState = () => {
     };
   };
 
-  const [formState, setFormState] = useState(mapPropsToValues());
+  const [formState, setFormState] =
+    useState(mapPropsToValues());
 
   const handleSubmit = () => {
     console.log('submit: ', values);
   };
 
-  const setFieldValue = (fieldName: string, value) => {
+  const setFieldValue = (
+    fieldName: string,
+    value
+  ) => {
     setFormState({
       ...formState,
       [fieldName]: value,

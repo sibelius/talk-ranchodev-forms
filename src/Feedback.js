@@ -59,6 +59,8 @@ export const Feedback = () => (
       <QRCode
         value="https://entria.feedback.house/sibelius"
         size={256}
+        bgColor='#272425'
+        fgColor='white'
       />
     </Center>
     <Center>

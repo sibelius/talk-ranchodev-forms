@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import { space, width, fontSize, color } from 'styled-system';
+import { Link } from './Link';
 
 export const Root = styled.div([], {
   width: '50vw',
@@ -47,10 +48,10 @@ export const Thanks = () => (
     <SpaceBetween mt={50} mb={50}>
       <HiringText>We are hiring!</HiringText>
     </SpaceBetween>
-    <a
-      href='https://entria.feedback.house/vagas/vaga/Sm9iUG9zdGluZzo1YWY5OTU0NDQ3MGYyMzAwMGYyMTRiYjI='
+    <Link
+      href='https://entria.contrata.vc/vagas/vaga/Sm9iUG9zdGluZzo1YWY5OTU0NDQ3MGYyMzAwMGYyMTRiYjI='
     >
-      Join Us</a>
+      https://entria.contrata.vc</Link>
     <Center>
       <EntriaLogo src={'./img/entriaLogo.png'} />
     </Center>
